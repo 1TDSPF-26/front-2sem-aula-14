@@ -1,5 +1,4 @@
 import { useParams } from "react-router";
-import Produtos from "../Produtos";
 
 
 export const listaProdutos = [
