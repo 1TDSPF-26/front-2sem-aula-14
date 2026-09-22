@@ -29,7 +29,12 @@ export default function Produtos() {
         
         }
 
+        carregarProdutos();
+
+
     },[]);
+
+    //Apresente a lista de produtos em CARDS utilizando Props...
 
     return (
         <main>
