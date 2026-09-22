@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-export default function Home() {
-  document.title = "Home"
-=======
+
 import { useEffect, useState } from "react";
 
 type TipoUsuarioGit = {
@@ -55,15 +52,11 @@ export default function Home() {
     loadingData();
 
   },[] );
->>>>>>> remotes/origin/feature/exemplo-pf0670
 
   return (
     <main>
       <h2>Home</h2>
-<<<<<<< HEAD
-    </main>
-  )
-=======
+
       <div>
         <ul>
             {usuarios.map((u,i)=>(
@@ -74,5 +67,5 @@ export default function Home() {
 
     </main>
   );
->>>>>>> remotes/origin/feature/exemplo-pf0670
+
 }
