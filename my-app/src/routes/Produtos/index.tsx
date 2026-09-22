@@ -1,8 +1,41 @@
+import { useEffect, useState } from "react"
+import type { TipoProduto } from "../../types/types";
+import { data } from "react-router";
 
 export default function Produtos() {
   
   //Para alterar o titulo da página: 
+
   document.title = "Produtos" 
+
+  const [Produtos, setProdutos] = useState<TipoProduto[]>([]);
+
+  useEffect ( ()=> {
+
+    const carregaProdutos = async ()=>{
+      try{
+          const response = await fetch("http://localhost:3001/produtos");
+        
+          if (!response.ok){
+          throw new Error("Erro na listagem dos produtos!")
+        }
+
+        const data:TipoProduto [] =  await response.json();
+        
+        console.log(data)
+
+  
+      } catch(error) {
+        console.error(error);
+      }
+      
+
+    }
+    
+    carregaProdutos();
+
+  }, []);
+
 
   return (
     <main>
