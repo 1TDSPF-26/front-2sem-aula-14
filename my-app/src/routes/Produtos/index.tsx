@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react"
 import type { TipoProduto } from "../../types/types";
-
-
+import CardProduto from "../../components/CardProduto/cardProduto";
 
 export default function Produtos(){
     document.title = "Produtos"
 
     const [produtos, setProdutos] = useState<TipoProduto[]>([]);
 
-    useEffect( ()=>{
+    useEffect(() => {
 
         const carregaProdutos = async () => {
 
@@ -20,12 +19,12 @@ export default function Produtos(){
                 }
 
                 const data: TipoProduto[] = await response.json();
-                console.log(data);
+                setProdutos(data);
 
             } catch (error){
                 console.error(error);
             }
-            
+
         }
 
         carregaProdutos();
@@ -35,7 +34,11 @@ export default function Produtos(){
     return(
         <main>
             <h2>Produtos</h2>
+            <div className="lista-produtos">
+                {produtos.map((produto) => (
+                    <CardProduto key={produto.id} {...produto} />
+                ))}
+            </div>
         </main>
-
     )
 }
